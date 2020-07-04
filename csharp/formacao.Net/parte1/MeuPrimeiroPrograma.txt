@@ -1,0 +1,10 @@
+using System;
+class Programa
+{
+	static void Main(string[] args)
+	{
+		int teste = 14;
+		var result = teste / (double)3.25;
+		Console.WriteLine("Olá, mundo " + result);
+	}
+}
