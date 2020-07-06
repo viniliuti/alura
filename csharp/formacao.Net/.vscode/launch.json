@@ -1,0 +1,27 @@
+{
+   // Use IntelliSense to find out which attributes exist for C# debugging
+   // Use hover for the description of the existing attributes
+   // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
+   "version": "0.2.0",
+   "configurations": [
+        {
+            "name": "1-Meu Primeiro Programa (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build 1-MPP",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/1-MeuPrimeiroPrograma/bin/Debug/netcoreapp3.1/1-MeuPrimeiroPrograma.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/1-MeuPrimeiroPrograma",
+            // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach",
+            "processId": "${command:pickProcess}"
+        }
+    ]
+}
