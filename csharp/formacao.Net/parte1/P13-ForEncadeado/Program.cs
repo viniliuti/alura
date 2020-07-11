@@ -35,6 +35,7 @@ namespace P13_ForEncadeado
             escreveForNumeros();
             escreveTabuada();
             escreveMultiploTres();
+            escreveFatorial();
 
             Console.ReadLine();
         }
@@ -71,6 +72,18 @@ namespace P13_ForEncadeado
             {
                 // if (i % 3 == 0)
                 Console.WriteLine($"{i} e multiplo de tres");
+            }
+        }
+
+        private static void escreveFatorial()
+        {
+            int fatorial = 1;
+
+            for (int i = 1; i <= 10; i++)
+            {
+                fatorial*=i;
+
+                Console.WriteLine($"Fatorial de {i} = {fatorial}");
             }
         }
     }
