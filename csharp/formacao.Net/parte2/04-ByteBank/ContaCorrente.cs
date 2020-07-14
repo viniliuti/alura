@@ -1,8 +1,8 @@
-namespace _03_ByteBank
+namespace _04_ByteBank
 {
 	public class ContaCorrente
 	{
-		public string Titular;
+		public Cliente Titular;
 		public int Agencia;
 		public int Numero;
 		public double Saldo = 100;

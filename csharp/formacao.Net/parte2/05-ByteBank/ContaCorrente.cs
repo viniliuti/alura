@@ -1,11 +1,11 @@
-namespace _03_ByteBank
+namespace _05_ByteBank
 {
 	public class ContaCorrente
 	{
-		public string Titular;
+		public Cliente Titular;
 		public int Agencia;
 		public int Numero;
-		public double Saldo = 100;
+		private double Saldo = 100;
 
 		public bool Sacar(double valor)
 		{
@@ -28,6 +28,15 @@ namespace _03_ByteBank
 			contaDestino.Depositar(valor);
 
 			return true;
+		}
+
+		public double ObterSaldo() =>
+			Saldo;
+
+		public void DefinirSaldo(double Saldo)
+		{
+			if (Saldo > 0)
+				this.Saldo = Saldo;
 		}
 	}
 }

@@ -16,9 +16,29 @@ namespace _03_ByteBank
 			Console.WriteLine(contaBruno.Saldo);
 			Console.WriteLine(resultadoSaque);
 
-			 resultadoSaque = contaBruno.Sacar(500);
+			resultadoSaque = contaBruno.Sacar(500);
 			Console.WriteLine(contaBruno.Saldo);
 			Console.WriteLine(resultadoSaque);
+
+
+			contaBruno.Depositar(500);
+			Console.WriteLine(contaBruno.Saldo);
+
+			ContaCorrente contaGabriela = new ContaCorrente();
+			contaGabriela.Titular="Gabriela";
+
+			bool transferencia = contaBruno.Transferir(200, contaGabriela);
+
+			Console.WriteLine($"Conta do Bruno {contaBruno.Saldo}");
+			Console.WriteLine($"Conta da Gabriela {contaGabriela.Saldo}");
+			Console.WriteLine($"Resultado transferencia {transferencia}");
+
+
+			transferencia = contaGabriela.Transferir(233, contaBruno);
+
+			Console.WriteLine($"Conta do Bruno {contaBruno.Saldo}");
+			Console.WriteLine($"Conta da Gabriela {contaGabriela.Saldo}");
+			Console.WriteLine($"Resultado transferencia {transferencia}");
 
 
 		}
