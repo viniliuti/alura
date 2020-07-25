@@ -1,4 +1,4 @@
-﻿using System;
+﻿using ByteBank.Sistemas;
 using ByteBank.Funcionarios;
 
 namespace ByteBank
@@ -7,29 +7,61 @@ namespace ByteBank
 	{
 		static void Main(string[] args)
 		{
+			UsarSistema();
+		}
+
+		public static void CalcularBonificacao()
+		{
 			GerenciadorBonificacao gerenciador = new GerenciadorBonificacao();
 
-			Funcionario carlos = new Funcionario();
-			carlos.Nome = "Carlos";
-			carlos.CPF = "123.321.123-99";
-			carlos.Salario = 2000;
+			Designer pedro = new Designer("111.123.456-99")
+			{ Nome = "Pedro" };
 
-			gerenciador.Registrar(carlos);
+			Diretor roberta = new Diretor("222.123.456-99")
+			{ Nome = "Roberta" };
 
-			Console.WriteLine(carlos.Nome);
-			Console.WriteLine(carlos.GetBonificacao());
+			Auxiliar igor = new Auxiliar("333.123.456-99")
+			{ Nome = "Igor" };
 
-			Diretor roberta = new Diretor();
-			roberta.Nome = "Roberta";
-			roberta.CPF = "412.141.228-78";
-			roberta.Salario = 5000;
+			GerenteDeConta camila = new GerenteDeConta("444.123.456-99")
+			{ Nome = "Camila" };
 
-			Console.WriteLine(roberta.Nome);
-			Console.WriteLine(roberta.GetBonificacao());
+			Desenvolvedor guilherme = new Desenvolvedor("555.123.456-99")
+			{ Nome = "Guilherme" };
+
+			gerenciador.Registrar(pedro);
 			gerenciador.Registrar(roberta);
+			gerenciador.Registrar(igor);
+			gerenciador.Registrar(camila);
+			gerenciador.Registrar(guilherme);
 
+			System.Console.WriteLine($"Total bonificacao mes: {gerenciador.TotalBonificacao}");
+		}
 
-			Console.WriteLine(gerenciador.TotalBonificacao);
+		public static void UsarSistema()
+		{
+			var sistemaInterno = new SistemaInterno();
+
+			Diretor roberta = new Diretor("111.123.456-99")
+			{
+				Nome = "Roberta",
+				Senha = "123"
+			};
+
+			sistemaInterno.Logar(roberta, "123");
+
+			GerenteDeConta camila = new GerenteDeConta("444.123.456-99")
+			{
+				Nome = "Camila",
+				Senha = "111"
+			};
+
+			sistemaInterno.Logar(camila, "123");
+
+			ParceiroComercial parceiro = new ParceiroComercial()
+			{ Senha = "abc" };
+
+			sistemaInterno.Logar(parceiro, "123");
 		}
 	}
 }
