@@ -8,12 +8,23 @@ namespace ByteBank
 		{
 			try
 			{
-				Metodo();
+				ContaCorrente conta = new ContaCorrente(0, 0);
+
+				// Metodo();
 			}
-			catch (NullReferenceException erro )
+			catch (NullReferenceException e)
 			{
-				System.Console.WriteLine(erro.StackTrace);
-				System.Console.WriteLine("Aconteceu um erro");
+				System.Console.WriteLine("Não é possivel dividir por zero " + e.Message);
+			}
+			catch (ArgumentException e)
+			{
+				System.Console.WriteLine($"Erro de ArgumentException {e.ParamName}");
+				System.Console.WriteLine(e.Message);
+			}
+			catch (Exception e)
+			{
+				System.Console.WriteLine(e.Message);
+				System.Console.WriteLine(e.StackTrace);
 			}
 		}
 
@@ -25,24 +36,23 @@ namespace ByteBank
 
 		private static void TestaDivisao(int divisor)
 		{
-			try
-			{
-				int resultado = Dividir(10, divisor);
-				System.Console.WriteLine($"Resultado divisao de 10 por: {divisor} é: {resultado}");
-			}
-			catch (DivideByZeroException erro)
-			{
-				System.Console.WriteLine(erro.Message);
-				System.Console.WriteLine("Erro ao dividir por zero");
-			}
+			int resultado = Dividir(10, divisor);
+			System.Console.WriteLine($"Resultado divisao de 10 por: {divisor} é: {resultado}");
+
 		}
 
 		private static int Dividir(int numero, int divisor)
 		{
-			ContaCorrente conta = null;
-			System.Console.WriteLine(conta.Saldo);
+			try
+			{
+				return numero / divisor;
+			}
+			catch (DivideByZeroException)
+			{
+				System.Console.WriteLine($"Exceção com numero: {numero} e divisor: {divisor}");
 
-			return numero / divisor;
+				throw;
+			}
 		}
 	}
 }
