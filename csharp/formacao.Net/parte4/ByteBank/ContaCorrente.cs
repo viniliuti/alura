@@ -39,32 +39,33 @@ namespace ByteBank
 				throw new ArgumentException("Numero deve ser maior que Zero.", nameof(numeroConta)) :
 				numeroConta;
 
-			TaxaOperacao = 30 / TotalDeContasCriadas;
-
 			TotalDeContasCriadas++;
+			TaxaOperacao = 30 / TotalDeContasCriadas;
 		}
 
-		public bool Sacar(double valor)
+		public void Sacar(double valor)
 		{
+			if (valor < 0)
+				throw new ArgumentException("Valor invalido para o saque", nameof(valor));
+
 			if (_saldo < valor)
-				return false;
+				throw new SaldoInsuficienteException(Saldo, valor);
 
 			_saldo -= valor;
-			return true;
 		}
 
 		public void Depositar(double valor) =>
 			_saldo += valor;
 
-		public bool Transferir(double valor, ContaCorrente contaDestino)
+		public void Transferir(double valor, ContaCorrente contaDestino)
 		{
-			if (_saldo < valor)
-				return false;
+			if (valor < 0)
+				throw new ArgumentException("Valor invalido para uma transferencia", nameof(valor));
+				
+			Sacar(valor);
 
 			_saldo -= valor;
 			contaDestino.Depositar(valor);
-
-			return true;
 		}
 	}
 }

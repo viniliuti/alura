@@ -8,9 +8,23 @@ namespace ByteBank
 		{
 			try
 			{
-				ContaCorrente conta = new ContaCorrente(0, 0);
+				ContaCorrente conta = new ContaCorrente(1, 2);
+
+				conta.Depositar(50);
+				System.Console.WriteLine(conta.Saldo);
+
+				ContaCorrente conta2 = new ContaCorrente(123, 321);
+
+
+				conta2.Transferir(-10, conta);
+
+				System.Console.WriteLine(conta.Saldo);
 
 				// Metodo();
+			}
+			catch (SaldoInsuficienteException ex)
+			{
+				System.Console.WriteLine($"Excecao do tipo saldo insuficiente exception. {ex.Message}");
 			}
 			catch (NullReferenceException e)
 			{
