@@ -18,10 +18,7 @@ namespace ByteBank
 
 		public SaldoInsuficienteException(string message) : base(message) { }
 
-		// public SaldoInsuficienteException(string message, System.Exception inner) : base(message, inner) { }
-
-		// protected SaldoInsuficienteException(
-		// 	System.Runtime.Serialization.SerializationInfo info,
-		// 	System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
+		public SaldoInsuficienteException(string message, System.Exception inner) 
+			: base(message, inner) { }
 	}
 }
