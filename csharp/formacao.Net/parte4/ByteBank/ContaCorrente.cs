@@ -76,7 +76,9 @@ namespace ByteBank
 			{
 				ContadorTransferenciasNaoPermitidos++;
 
-				throw new OperacaoFinanceiraException("operacao nao realizada", ex);
+				throw new OperacaoFinanceiraException(
+					"operacao nao realizada", 
+					ex);
 			}
 
 			_saldo -= valor;
