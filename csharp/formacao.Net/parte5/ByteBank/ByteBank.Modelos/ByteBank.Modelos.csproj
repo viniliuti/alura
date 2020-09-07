@@ -1,7 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
-
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+	</PropertyGroup>
+	
+	<!-- This is necessary to output a .XML file that contains all the SUMMARY tags we add -->
+	<!-- The XML file must be in the same folder as the DLL file so the Project using it
+	can see the SUMMARY info -->
+	<PropertyGroup>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	</PropertyGroup>
 </Project>

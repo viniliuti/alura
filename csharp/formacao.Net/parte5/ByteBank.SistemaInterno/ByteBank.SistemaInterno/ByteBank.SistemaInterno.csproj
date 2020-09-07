@@ -1,13 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-  </PropertyGroup>
-
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+	</PropertyGroup>
+	
+	<!-- Reference to manually add a DLL reference -->
+	<!-- The XML file must be in the same folder to load the SUMMARY tags -->
+	<!-- https://medium.com/@tonerdo/referencing-a-net-dll-directly-using-the-net-core-toolchain-16f0af46a4dc -->
 	<ItemGroup>
 		<Reference Include="../../Libraries/ByteBank.Modelos.dll">
 			<HintPath>ByteBank.Modelos Arquivo de DLL</HintPath>
 		</Reference>
 	</ItemGroup>
+
+	<!-- Doesn't work -->
+	<!-- https://cursos.alura.com.br/forum/topico-adicionar-referencia-de-dll-no-vscode-100552 -->
 </Project>

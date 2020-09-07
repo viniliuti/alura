@@ -7,8 +7,10 @@ namespace ByteBank.SistemaAgencia
 	{
 		static void Main(string[] args)
 		{
-			ContaCorrente conta = new ContaCorrente(123, 321);
+			ContaCorrente conta = new ContaCorrente(321, 123);
 			
+			conta.Sacar(1);
+
 			System.Console.WriteLine(conta.Numero);
 		}
 	}

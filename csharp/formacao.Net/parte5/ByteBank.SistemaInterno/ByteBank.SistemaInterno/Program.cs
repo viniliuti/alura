@@ -7,7 +7,9 @@ namespace ByteBank.SistemaInterno
 	{
 		static void Main(string[] args)
 		{
-			ContaCorrente conta = new ContaCorrente(321, 123);
+			ContaCorrente conta = new ContaCorrente(1, 1);
+
+			conta.Sacar(1);
 
 			System.Console.WriteLine(conta.Saldo);
 		}

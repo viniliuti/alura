@@ -2,6 +2,9 @@ using System;
 
 namespace ByteBank.Modelos
 {
+	/// <summary>
+	/// Define uma Conta Corrente do banco ByteBank
+	/// </summary>
 	public class ContaCorrente
 	{
 		public Cliente Titular { get; set; }
@@ -31,20 +34,31 @@ namespace ByteBank.Modelos
 			}
 		}
 
-		public ContaCorrente(int numeroAgencia, int numeroConta)
+		/// <summary>
+		/// Cria uma instancia de Conta Corrente com os argumentos utilizados
+		/// </summary>
+		/// <param name="Agencia">Representa o valor da propriedade <see cref="Agencia"/> e deve possuir um valor maior que zero</param>
+		/// <param name="Conta">Representa o valor da propriedade <see cref="Numero"/> e deve possuir um valor maior que zero</param>
+		public ContaCorrente(int Agencia, int Conta)
 		{
-			Agencia = numeroAgencia <= 0 ?
-				throw new ArgumentException("Agencia deve ser maior que Zero.", nameof(numeroAgencia)) :
-				numeroAgencia;
+			this.Agencia = Agencia <= 0 ?
+				throw new ArgumentException("Agencia deve ser maior que Zero.", nameof(Agencia)) :
+				Agencia;
 
-			Numero = numeroConta <= 0 ?
-				throw new ArgumentException("Numero deve ser maior que Zero.", nameof(numeroConta)) :
-				numeroConta;
+			Numero = Conta <= 0 ?
+				throw new ArgumentException("Numero deve ser maior que Zero.", nameof(Conta)) :
+				Conta;
 
 			TotalDeContasCriadas++;
 			TaxaOperacao = 30 / TotalDeContasCriadas;
 		}
 
+		/// <summary>
+		/// Realiza o saque e atualiza o valor da propriedade <see cref="Saldo"/>.
+		/// </summary>
+		/// <exception cref="ArgumentException">Exceção lançada quando um valor negativo é utilizado no argumento <paramref name="valor"/>. </exception>
+		/// <exception cref="SaldoInsuficienteException">Exceção lançada quando um valor de <paramref name="valor"/> é maior que o valor da propriedade <see cref="Saldo"/>. </exception>
+		/// <param name="valor">Representa o valor do Saque, deve ser maior que 0(zero) e menor que o <see cref="Saldo"/>.</param>
 		public void Sacar(double valor)
 		{
 			if (valor < 0)
@@ -77,7 +91,7 @@ namespace ByteBank.Modelos
 				ContadorTransferenciasNaoPermitidos++;
 
 				throw new OperacaoFinanceiraException(
-					"operacao nao realizada", 
+					"operacao nao realizada",
 					ex);
 			}
 
