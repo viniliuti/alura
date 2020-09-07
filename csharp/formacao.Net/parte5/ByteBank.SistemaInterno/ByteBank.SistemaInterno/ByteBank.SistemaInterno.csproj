@@ -12,6 +12,9 @@
 			<HintPath>ByteBank.Modelos Arquivo de DLL</HintPath>
 		</Reference>
 	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="Humanizer" Version="2.8.26" />
+	</ItemGroup>
 
 	<!-- Doesn't work -->
 	<!-- https://cursos.alura.com.br/forum/topico-adicionar-referencia-de-dll-no-vscode-100552 -->
