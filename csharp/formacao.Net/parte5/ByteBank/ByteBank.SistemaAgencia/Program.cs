@@ -14,8 +14,28 @@ namespace ByteBank.SistemaAgencia
 
 			// System.Console.WriteLine(conta.Numero);
 
+		}
 
-			GetPhoneNumber();
+		private static void GetObjectIsEqual()
+		{
+			Cliente cli1 = new Cliente()
+			{
+				Nome = "cli",
+				CPF = "123",
+				Profissao = "prof"
+			};
+
+			Cliente cli2 = new Cliente()
+			{
+				Nome = "cli",
+				CPF = "123",
+				Profissao = "prof"
+			};
+
+			ContaCorrente contaCorrente = new ContaCorrente(1, 2);
+
+			System.Console.WriteLine(cli1.Equals(contaCorrente));
+			System.Console.WriteLine(cli1.Equals(cli2));
 		}
 
 		private static void GetValueFromURL()
