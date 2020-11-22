@@ -13,12 +13,12 @@ namespace ByteBank.SistemaAgencia
 
 			// System.Console.WriteLine(conta.Numero);
 
-			string url = "pagina?moedaOrigem=real&moedaDestino=dolar&valor=1500";
+			string url = "pagina?moedaOrigem=Real&moedaDestINo=doLar&valor=1500";
 			ExtratorValorDeArgumentosURL valorURL = new ExtratorValorDeArgumentosURL(url);
 
 			System.Console.WriteLine(valorURL.GetValor("moedaDestino"));
 			System.Console.WriteLine(valorURL.GetValor("moedaOrigem"));
-			System.Console.WriteLine(valorURL.GetValor("valor"));			
+			System.Console.WriteLine(valorURL.GetValor("Valor"));
 		}
 	}
 }
