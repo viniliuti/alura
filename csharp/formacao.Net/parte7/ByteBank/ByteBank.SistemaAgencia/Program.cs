@@ -10,14 +10,26 @@ namespace ByteBank.SistemaAgencia
 		{
 			ListaDeContaCorrente listaDeContaCorrente = new ListaDeContaCorrente();
 
-			listaDeContaCorrente.Adicionar(new ContaCorrente(845, 654321));
-			listaDeContaCorrente.Adicionar(new ContaCorrente(845, 654322));
-			listaDeContaCorrente.Adicionar(new ContaCorrente(845, 654323));
-			listaDeContaCorrente.Adicionar(new ContaCorrente(845, 654323));
-			listaDeContaCorrente.Adicionar(new ContaCorrente(845, 654323));
-			listaDeContaCorrente.Adicionar(new ContaCorrente(845, 654323));
-			listaDeContaCorrente.Adicionar(new ContaCorrente(845, 654323));
-			listaDeContaCorrente.Adicionar(new ContaCorrente(845, 654323));
+			ContaCorrente novaConta = new ContaCorrente(554, 987456);
+
+			// listaDeContaCorrente.Adicionar(new ContaCorrente(845, 654321));
+			// listaDeContaCorrente.Adicionar(new ContaCorrente(845, 654322));
+			// listaDeContaCorrente.Adicionar(new ContaCorrente(845, 654323));
+			// listaDeContaCorrente.Adicionar(new ContaCorrente(845, 654331));
+			// listaDeContaCorrente.Adicionar(new ContaCorrente(845, 654330));
+			// listaDeContaCorrente.Adicionar(new ContaCorrente(845, 654329));
+			// listaDeContaCorrente.Adicionar(new ContaCorrente(845, 654328));
+			// listaDeContaCorrente.Adicionar(new ContaCorrente(845, 654327));
+			// listaDeContaCorrente.Adicionar(novaConta);
+
+			listaDeContaCorrente.EscreverListaTela();
+			System.Console.WriteLine("ListaCompleta");
+
+			listaDeContaCorrente.Remover(novaConta);
+
+
+			listaDeContaCorrente.EscreverListaTela();
+			System.Console.WriteLine("ListaRemovida");
 		}
 
 		private static void TestaArrayContaCorrente()

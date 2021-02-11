@@ -1,6 +1,5 @@
 using ByteBank.Modelos;
 using System;
-using System.Linq;
 
 namespace ByteBank.SistemaAgencia
 {
@@ -45,6 +44,40 @@ namespace ByteBank.SistemaAgencia
 			}
 
 			_itens = novoArray;
+		}
+
+		public void Remover(ContaCorrente item)
+		{
+			int indiceItem = -1;
+
+			for (int i = 0; i < _proximaPosicao; i++)
+			{
+				if (_itens[i].Equals(item))
+				{
+					indiceItem = i;
+
+					break;
+				}
+			}
+
+			if (indiceItem == -1)
+				return;
+
+			for (int i = indiceItem; i < _proximaPosicao - 1; i++)
+			{
+				_itens[i] = _itens[i + 1];
+			}
+
+			_proximaPosicao--;
+			_itens[_proximaPosicao] = null;
+		}
+
+		public void EscreverListaTela()
+		{
+			for (int i = 0; i < _proximaPosicao; i++)
+			{
+				System.Console.WriteLine($"Conta Numero {_itens[i].Numero}, Agencia {_itens[i].Agencia}");
+			}
 		}
 	}
 }
