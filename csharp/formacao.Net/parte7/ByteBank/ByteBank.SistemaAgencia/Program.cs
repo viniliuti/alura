@@ -8,9 +8,31 @@ namespace ByteBank.SistemaAgencia
 	{
 		static void Main(string[] args)
 		{
+			ListaGenerica<int> listaIdade = new ListaGenerica<int>();
+
+			listaIdade.AddRange(1, 2, 3);
+			// listaIdade.Adicionar("1, 2, 3"); //error
+
+			for (int i = 0; i < listaIdade.Tamanho; i++)
+			{
+				System.Console.WriteLine(listaIdade[i].ToString());
+			}
 
 		}
 
+		static void TestaListaDeObject()
+		{
+			ListaDeObject listadeIdades = new ListaDeObject();
+
+			listadeIdades.Adicionar(10);
+			listadeIdades.Adicionar(20);
+			listadeIdades.AddRange(15, 25, 50);
+
+			for (int i = 0; i < listadeIdades.Tamanho; i++)
+			{
+				System.Console.WriteLine((int)listadeIdades[i]);
+			}
+		}
 		static void TestaListaContaCorrente()
 		{
 			ListaDeContaCorrente listaDeContaCorrente = new ListaDeContaCorrente();
