@@ -15,7 +15,7 @@ namespace ByteBank.SistemaAgencia
 			listaInt.Add(5);
 			listaInt.Remove(1);
 
-			listaInt.AddVarios(1, 2, 3, 4, 6, 8);
+			listaInt.AddVarios<int>(1, 2, 3, 4, 6, 8);
 
 			foreach (var item in listaInt)
 			{
