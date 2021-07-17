@@ -12,6 +12,8 @@ namespace Alura.LeilaoOnline.Tests
 			//Given
 			Leilao leilao = new Leilao("Barney");
 
+			leilao.IniciaPregao();
+
 			//When
 			leilao.TerminaPregao();
 
@@ -30,11 +32,20 @@ namespace Alura.LeilaoOnline.Tests
 			// Arrange
 			var leilao = new Leilao("Van Gogh");
 			var fulano = new Interessada("Fulano", leilao);
+			var ciclano = new Interessada("Ciclano", leilao);
 
-			foreach (var oferta in ofertas)
+			leilao.IniciaPregao();
+
+			for (int i = 0; i < ofertas.Length; i++)
 			{
-				leilao.RecebeLance(fulano, oferta);
+				var oferta = ofertas[i];
+
+				if (i % 2 == 0)
+					leilao.RecebeLance(fulano, oferta);
+				else
+					leilao.RecebeLance(ciclano, oferta);
 			}
+
 
 			// Act
 			leilao.TerminaPregao();
