@@ -11,8 +11,7 @@ namespace Alura.LeilaoOnline.Tests
 		[InlineData(2, new double[] { 800, 900 })]
 		[InlineData(4, new double[] { 800, 900, 200, 500 })]
 		public void NaoPermiteNovosLancesDadoLeilaoFinalizado(
-			int qtdEsperada, double[] ofertas
-		)
+			int qtdEsperada, double[] ofertas)
 		{
 			//Given
 			var leilao = new Leilao("Van Gogh");
