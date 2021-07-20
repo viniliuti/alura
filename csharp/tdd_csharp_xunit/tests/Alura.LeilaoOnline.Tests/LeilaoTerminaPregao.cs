@@ -1,3 +1,4 @@
+using System;
 using Alura.LeilaoOnline.Core;
 using Xunit;
 
@@ -55,5 +56,48 @@ namespace Alura.LeilaoOnline.Tests
 
 			Assert.Equal(valorEsperado, valorObtido);
 		}
+
+		[Fact]
+		public void LancaInvalidOperationExceptionDadoPregaoNaoIniciado()
+		{
+			//Given
+			Leilao leilao = new Leilao("Barney");
+
+			// * could be just this \/
+			//Assert.Throws<System.InvalidOperationException>(() =>
+			// leilao.TerminaPregao());
+
+			// * or 
+			// * checking someting inside of the exception 
+			// * like this \/
+			var excecaoObtida = Assert.Throws<System.InvalidOperationException>(() =>
+				leilao.TerminaPregao());
+
+			var msgEsperada = "Não é possivel terminar pregao sem ter sido iniciado.";
+
+			Assert.Equal(msgEsperada, excecaoObtida.Message);
+
+
+			// * or even checkin the Exception as returned *TYPE*
+			// try
+			// {
+			// 	//When
+			// 	leilao.TerminaPregao();
+
+			// 	Assert.True(false);
+			// }
+			// catch (System.Exception ex)
+			// {
+			// 	//Then
+			// 	Assert.IsType<System.InvalidOperationException>(ex);
+			// }
+		}
+
+
+
+
+
+
+
 	}
 }
